@@ -67,65 +67,65 @@ public class Housing extends Contract {
 
     public RemoteCall<TransactionReceipt> stealHouseKindly(BigInteger id, BigInteger weiValue) {
         final Function function = new Function(
-                FUNC_STEALHOUSEKINDLY, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id)), 
+                FUNC_STEALHOUSEKINDLY,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function, weiValue);
     }
 
     public RemoteCall<TransactionReceipt> approveValuator(String vAddr) {
         final Function function = new Function(
-                FUNC_APPROVEVALUATOR, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(vAddr)), 
+                FUNC_APPROVEVALUATOR,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(vAddr)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> stealHouse(BigInteger id) {
         final Function function = new Function(
-                FUNC_STEALHOUSE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id)), 
+                FUNC_STEALHOUSE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> sellHouse(BigInteger id) {
         final Function function = new Function(
-                FUNC_SELLHOUSE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id)), 
+                FUNC_SELLHOUSE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> applyForValuator() {
         final Function function = new Function(
-                FUNC_APPLYFORVALUATOR, 
-                Arrays.<Type>asList(), 
+                FUNC_APPLYFORVALUATOR,
+                Arrays.<Type>asList(),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> assignValue(BigInteger id, BigInteger v) {
         final Function function = new Function(
-                FUNC_ASSIGNVALUE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id), 
-                new org.web3j.abi.datatypes.generated.Uint256(v)), 
+                FUNC_ASSIGNVALUE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id),
+                        new org.web3j.abi.datatypes.generated.Uint256(v)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> registerHome() {
         final Function function = new Function(
-                FUNC_REGISTERHOME, 
-                Arrays.<Type>asList(), 
+                FUNC_REGISTERHOME,
+                Arrays.<Type>asList(),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> buyHouse(BigInteger id, BigInteger weiValue) {
         final Function function = new Function(
-                FUNC_BUYHOUSE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id)), 
+                FUNC_BUYHOUSE,
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(id)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function, weiValue);
     }
