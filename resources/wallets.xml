@@ -1,0 +1,18 @@
+<wallets>
+    <wallet>
+        <privateKey>0a254e1e76832a2c2941a89e8175dc0b0a7877b4173b72126585d9fe48166be5</privateKey>
+        <publicKey>0x9Ba7e74D8893695a606edaB0aee0C0E526032C94</publicKey>
+    </wallet>
+    <wallet>
+        <privateKey>45e85cae21bc00efb2a28b93dfd5277cbe3c3e0a58a08563cfa2da4aaaadb197</privateKey>
+        <publicKey>0xF4f79cF7a43b24F1FD5F7AaC94f2a3ECAedA794A</publicKey>
+    </wallet>
+    <wallet>
+        <privateKey>c77297c6d532810bda7dd3e7532610661a558ba5f45eff0a69557bb3b2c0a63e</privateKey>
+        <publicKey>0x9EF4120e289f78a195358Efa185dEeaBf862E623</publicKey>
+    </wallet>
+    <wallet>
+        <privateKey>dbddbcbf8df1fe49663d39a5fef0f800cae68f5d6b07a29c25efac1fda8f6bb6</privateKey>
+        <publicKey>0x3331a0f111FeCf3C4EdAeED5deC18D3a11061f45</publicKey>
+    </wallet>
+</wallets>
