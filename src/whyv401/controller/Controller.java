@@ -1,15 +1,11 @@
 package whyv401.controller;
 
+import com.squareup.javapoet.ClassName;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.ECKeyPair;
-import org.web3j.crypto.Wallet;
-import org.web3j.crypto.WalletUtils;
-import org.web3j.ens.EnsResolutionException;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthGetTransactionCount;
@@ -17,41 +13,45 @@ import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.gas.ContractGasProvider;
 import org.web3j.tx.gas.DefaultGasProvider;
+import whyv401.smart_contract.HousingContract;
+import whyv401.smart_contract.Housing;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.soap.Node;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-
-import java.io.IOException;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Controller {
-    //TODO: remove
+    private final static Logger logger = Logger.getLogger(ClassName.class.getName());
+    private Web3j web3j;
+    private HousingContract housingContract = HousingContract.getInstance();
+    private Housing housing;
+
     public static void main(String[] args) {
-        Controller controller = new Controller();
-//        controller.connect();
-        controller.loadContract("0xcA0496f6345c2C8FFbaBC21F2af9884F1a1e4734", "8e0ff9398ccd8025d8b6f7d1e02757cfe9520368fa92c940540d676b0a3ba9db");
-        controller.registerHome();
+
+    }
+
+    /**
+     * Connects to blockchain at port 8545
+     */
+    public void connect(){
+        try {
+            web3j = Web3j.build(new HttpService()); //8545
+            logger.log(Level.INFO, "Connected to web3j");
+            Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
+            String clientVersion = web3ClientVersion.getWeb3ClientVersion();
+            System.out.println(clientVersion);
+            // (String contractAddress, Web3j web3j, Credentials credentials, ContractGasProvider contractGasProvider
+//            Housing housing = Housing.load("0xAbc9F723eF62919326ca11627fd26d67Cb29E1fd", web3j, credentials, gasProvider);
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Failed to connect to web3j");
+            logger.log(Level.SEVERE, e.toString(), e);
+        }
     }
 
     public Controller() {
         connect();
     }
-
-    private Web3j web3j;
 
     /**
      *
@@ -72,117 +72,49 @@ public class Controller {
             EthGetTransactionCount transactionCount = web3j.ethGetTransactionCount(address, DefaultBlockParameterName.LATEST)
                     .sendAsync()
                     .get();
-            //TODO: log
+            logger.log(Level.INFO, "Got nonce");
             return transactionCount.getTransactionCount();
         } catch (InterruptedException | ExecutionException e) {
-            //TODO: log
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Failed to retrieve nonce");
+            logger.log(Level.SEVERE, e.toString(), e);
         }
-        //TODO: log
         return null;
     }
-
-    private void connect(){
-        try {
-            web3j = Web3j.build(new HttpService()); //8545
-            Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
-            String clientVersion = web3ClientVersion.getWeb3ClientVersion();
-            System.out.println(clientVersion);
-            //TODO: log
-
-            // (String contractAddress, Web3j web3j, Credentials credentials, ContractGasProvider contractGasProvider
-//            Housing housing = Housing.load("0xAbc9F723eF62919326ca11627fd26d67Cb29E1fd", web3j, credentials, gasProvider);
-
-        } catch (Exception e) {
-            //TODO: log
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public Button btnDeploy;
+    //    public Button btnDeploy;
     public Button btnCitCon;
     public Button btnValCon;
     public TextField txtOwnKey;
-    public TextField txtPOwnKey;
-    public TextField txtValKey;
     public TextField txtCitKey;
-    public TextField txtIniWei;
+    public TextField txtContAddr;
+    public TextField txtValKey;
 
     //TODO: initialise
-    public TextField txtContAddr;
+    public TextField txtPOwnKey;
+    public TextField txtIniWei;
 
-    //TODO: learn to log
-    public void onBtnDeploy(ActionEvent e){
-        BigInteger wei = validateWei(txtIniWei.getText());
-        if(wei == null){
-            //TODO: log
-            return;
-        }
-        if(!WalletUtils.isValidPrivateKey(txtPOwnKey.getText())) {
-            //TODO: log
-            return;
-        }
-        deployContract(txtOwnKey.getText(), txtPOwnKey.getText(), wei);
-        //TODO: log
-    }
+    //TODO: remove
+//    public void onBtnDeploy(ActionEvent e){
+//        BigInteger wei = validateWei(txtIniWei.getText());
+//        if(wei == null){
+//            logger.log(Level.WARNING, "Invalid initial wei");
+//            return;
+//        }
+//        if(!WalletUtils.isValidPrivateKey(txtOwnKey.getText())) {
+//            logger.log(Level.WARNING, "Invalid private key");
+//            return;
+//        }
+//        deployContract(txtOwnKey.getText(), txtOwnKey.getText(), wei);
+//        logger.log(Level.INFO, "HousingContract deployed");
+//    }
 
     public void onBtnLoad(ActionEvent e){
-//        BigInteger wei = validateWei(txtIniWei.getText());
-        if(!WalletUtils.isValidPrivateKey(txtPOwnKey.getText())) {
-            //TODO: log
-            return;
-        }
-        loadContract(txtContAddr.getText(), Utils.toHex(txtPOwnKey.getText()));
-        //TODO: log
+        housingContract.addCredentials(txtOwnKey.getText(), txtContAddr.getText(), web3j);
     }
 
+    //TODO: remove
     /**
-     * Determines if string can be converted to BigInteger
-     * @param w
-     * @return
-     */
-    private BigInteger validateWei(String w){
-        if(w.equals(""))
-            return null;
-        BigInteger wei;
-        try {
-            wei = new BigInteger(txtIniWei.getText());
-        }catch (NumberFormatException n) {
-            System.out.println("Invalid wei amount");
-            return null;
-        }
-        return wei;
-    }
-
-    private Housing housing;
-
-    /**
-     * Load a contract that's already deployed.
-     * @param contractAddress
-     * @param privateKey must arrive in hex format
-     */
-    private void loadContract(String contractAddress, String privateKey) {
-        //TODO: no wei when loading???
-        //TODO: load contract from blockchain
-        // (String contractAddress, Web3j web3j, Credentials credentials, ContractGasProvider contractGasProvider)
-        try {
-            housing = Housing.load(contractAddress, web3j, Credentials.create(privateKey), new DefaultGasProvider());
-            //TODO: log
-        }catch (EnsResolutionException e){
-            //TODO: log
-            System.out.println("contract load error");
-        }
-    }
-
-    private void registerHome(){
-        housing.registerHome();
-        //TODO: log
-    }
-
-    /**
-     * Deploy a new contract to blockchain
+     * Deploy a new housingContract to blockchain
+     * Doesn't work, throws array out of bound exception, pre-load contact
      * @param publicKey
      * @param privateKey
      * @param initialWei
@@ -211,44 +143,5 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-
-    private void newWallet(String privateKey, String publicKey, String password){
-
-    }
-
-    // not needed
-    private String encodeHex(byte[] bytes){
-        char[] hexArray = "0123456789ABCDEF".toCharArray();
-        char[] hexChars = new char[bytes.length * 2];
-        for ( int j = 0; j < bytes.length; j++ ) {
-            int v = bytes[j] & 0xFF;
-            hexChars[j * 2] = hexArray[v >>> 4];
-            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
-        }
-        return new String(hexChars);
-//        return Base64.getEncoder().encodeToString(bytes);
-    }
-
-    // TODO: find way of securing storing wallets
-    private String getPrivateKey(String publicKey){
-        try {
-            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            InputStream IS = Main.class.getResourceAsStream("/wallets.xml");
-            Document doc = documentBuilder.parse(IS);
-
-            XPathFactory xPathFactory = XPathFactory.newInstance();
-            XPath xPath = xPathFactory.newXPath();
-
-//            String expr = "/wallets/wallet/publicKey[text()=\"0x3331a0f111FeCf3C4EdAeED5deC18D3a11061f45\"]/../privateKey[text()]";
-            String expr = "/wallets/wallet/publicKey[text()='" + publicKey + "']/../privateKey[text()]";
-            String string = (String) xPath.compile(expr).evaluate(doc, XPathConstants.STRING);
-            return string;
-        } catch (ParserConfigurationException | SAXException | IOException | XPathExpressionException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

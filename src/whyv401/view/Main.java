@@ -1,4 +1,4 @@
-package whyv401.controller;
+package whyv401.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

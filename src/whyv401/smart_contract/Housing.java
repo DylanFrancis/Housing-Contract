@@ -1,4 +1,4 @@
-package whyv401.controller;
+package whyv401.smart_contract;
 
 import java.math.BigInteger;
 import java.util.Arrays;

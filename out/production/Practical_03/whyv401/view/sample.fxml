@@ -39,7 +39,7 @@
          <children>
             <Button fx:id="btnValCon" disable="true" mnemonicParsing="false" text="Connect" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtValKey" disable="true" GridPane.columnIndex="1" />
-            <Label text="Public Key" />
+            <Label text="Private Key" />
          </children>
       </GridPane>
       <GridPane prefHeight="145.0" prefWidth="221.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -54,12 +54,11 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Public Key" />
-            <Button fx:id="btnDeploy" defaultButton="true" mnemonicParsing="false" onAction="#onBtnDeploy" text="Deploy" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtOwnKey" prefHeight="25.0" prefWidth="126.0" text="0x9EF4120e289f78a195358Efa185dEeaBf862E623" GridPane.columnIndex="1" />
-            <Label text="Initial Wei" GridPane.rowIndex="2" />
-            <TextField fx:id="txtIniWei" text="500000" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtPOwnKey" text="c77297c6d532810bda7dd3e7532610661a558ba5f45eff0a69557bb3b2c0a63e" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Address" />
+            <Button fx:id="btnLoad" defaultButton="true" mnemonicParsing="false" onAction="#onBtnLoad" text="Load" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtContAddr" prefHeight="25.0" prefWidth="126.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtOwnKey" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Private Key" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <GridPane GridPane.columnIndex="4" GridPane.rowIndex="1">
@@ -73,7 +72,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Public Key" />
+            <Label text="Private Key" />
             <Button fx:id="btnCitCon" disable="true" mnemonicParsing="false" text="Connect" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtCitKey" disable="true" GridPane.columnIndex="1" />
          </children>

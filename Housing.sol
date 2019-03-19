@@ -83,10 +83,11 @@ contract Housing{
         houses[houseId] = House(houseId, 0, msg.sender, false);
     }
     
-    function getAllHouses() public returns(House[] memory h){
+    function getAllHousesForSale() public returns(House[] memory h){
         House[] memory hArr = new House[](houseId);
         for(uint256 x = 0; x <= houseId; x++){
-            hArr[x] = houses[x];
+            if(houses[x].forSale)
+                hArr[x] = houses[x];
         }
         return hArr;
     }
