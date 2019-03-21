@@ -1,37 +1,57 @@
 package whyv401.smart_contract;
 
+import org.web3j.abi.FunctionReturnDecoder;
+import org.web3j.abi.TypeReference;
+import org.web3j.abi.datatypes.Address;
+import org.web3j.abi.datatypes.DynamicArray;
+import org.web3j.abi.datatypes.Event;
+import org.web3j.abi.datatypes.Type;
+import org.web3j.abi.datatypes.generated.Uint256;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
 import org.web3j.ens.EnsResolutionException;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.RemoteCall;
+import org.web3j.protocol.core.methods.request.EthFilter;
+import org.web3j.protocol.core.methods.response.EthCall;
+import org.web3j.protocol.core.methods.response.Log;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
+import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.gas.DefaultGasProvider;
+import org.web3j.tx.gas.StaticGasProvider;
+import org.web3j.utils.Convert;
 import whyv401.controller.Utils;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 
 public class HousingContract extends AbstractContract<Housing>{
     protected static final String HOME_REGIS = "Home registered";
     protected static final String FAIL_HOME_REGIS = "Failed to register home";
 
-    private HousingContract(){
-        contractMap = new HashMap<>();
+    protected HousingContract(String contractAddr) {
+        super(contractAddr);
     }
 
-    public static synchronized HousingContract getInstance() {
+    public static synchronized HousingContract getInstance(String contractAddr) {
         if(contract == null)
-            contract = new HousingContract();
+            contract = new HousingContract(contractAddr);
         return (HousingContract) contract;
     }
 
-    public boolean addCredentials(String privateKey, String contractAddress, Web3j web3j){
+    public boolean addCredentials(String privateKey, String contractAddress){
         if(!WalletUtils.isValidPrivateKey(privateKey)) {
             logger.log(Level.WARNING, INVALID_KEY);
             return false;
         }
         try {
-            Credentials credentials = Credentials.create(Utils.toHex(privateKey));
+            Credentials credentials = Credentials.create(privateKey);
             Housing housing = Housing.load(contractAddress, web3j, credentials, new DefaultGasProvider());
             //TODO: hex public key??
             contractMap.put(credentials.getAddress(), housing);
@@ -109,13 +129,18 @@ public class HousingContract extends AbstractContract<Housing>{
     }
 
     //TODO: finish
-    public boolean getHousesForSale(String sender){
-        if(!contains(sender)) return false;
-
-        return false;
+    public List getHousesForSale(String sender){
+        if(!contains(sender)) return null;
+        try {
+            List list = contractMap.get(sender).getAllHousesForSale().send();
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    private boolean sellHouse(String sender, BigInteger houseId){
+    public boolean sellHouse(String sender, BigInteger houseId){
         if(!contains(sender)) return false;
         try {
             contractMap.get(sender).sellHouse(houseId).send();

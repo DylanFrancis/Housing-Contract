@@ -1,4 +1,4 @@
-package whyv401.view;
+package whyv401.test;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/whyv401/view/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/whyv401/view/houseUI.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 800, 275));
         primaryStage.show();

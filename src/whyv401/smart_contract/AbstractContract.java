@@ -2,6 +2,8 @@ package whyv401.smart_contract;
 
 import com.squareup.javapoet.ClassName;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.Contract;
 
 import java.math.BigInteger;
@@ -12,18 +14,43 @@ import java.util.logging.Logger;
 public abstract class AbstractContract <T extends Contract>{
     protected final static Logger logger = Logger.getLogger(ClassName.class.getName());
     protected static AbstractContract contract;
+    protected static Web3j web3j;
+    protected static String contractAddress;
     protected HashMap<String, T> contractMap;
 
+    protected static final String CONNECTED     = "Connected to web3j.";
+    protected static final String FAIL_CONNECT  = "Failed to connect to web3j.";
     protected static final String KEY_LOCKED    = "Key not unlocked.";
     protected static final String KEY_UNLOCKED  = "Key unlocked.";
     protected static final String CON_LOADED    = "Contract loaded.";
     protected static final String CON_LOAD_ERR  = "Failed to load contract.";
     protected static final String INVALID_KEY   = "Invalid key.";
     protected static final String INVALID_WEI   = "Invalid initial wei.";
+    protected static final String CONT_SUCCESS  = "Contract successful.";
+    protected static final String CONT_FAIL     = "Contract failed.";
 
-    public abstract boolean addCredentials(String privateKey, String contractAddress, Web3j web3j);
+    protected AbstractContract(String contractAddr){
+        contractAddress = contractAddr;
+        contractMap = new HashMap<>();
+        connect();
+    }
+
+    public abstract boolean addCredentials(String privateKey, String contractAddress);
 
     public final void removeCredentials(String address){ contractMap.remove(address); }
+
+    private void connect(){
+        try {
+            web3j = Web3j.build(new HttpService()); //8545
+            logger.log(Level.INFO, CONNECTED);
+            Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
+            String clientVersion = web3ClientVersion.getWeb3ClientVersion();
+            logger.log(Level.INFO, clientVersion);
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, FAIL_CONNECT);
+            logger.log(Level.SEVERE, e.toString(), e);
+        }
+    }
 
     /**
      * Determines if string can be converted to BigInteger

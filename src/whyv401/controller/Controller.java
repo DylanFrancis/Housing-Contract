@@ -24,34 +24,14 @@ import java.util.logging.Logger;
 public class Controller {
     private final static Logger logger = Logger.getLogger(ClassName.class.getName());
     private Web3j web3j;
-    private HousingContract housingContract = HousingContract.getInstance();
+    private HousingContract housingContract;
     private Housing housing;
 
     public static void main(String[] args) {
 
     }
 
-    /**
-     * Connects to blockchain at port 8545
-     */
-    public void connect(){
-        try {
-            web3j = Web3j.build(new HttpService()); //8545
-            logger.log(Level.INFO, "Connected to web3j");
-            Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
-            String clientVersion = web3ClientVersion.getWeb3ClientVersion();
-            System.out.println(clientVersion);
-            // (String contractAddress, Web3j web3j, Credentials credentials, ContractGasProvider contractGasProvider
-//            Housing housing = Housing.load("0xAbc9F723eF62919326ca11627fd26d67Cb29E1fd", web3j, credentials, gasProvider);
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Failed to connect to web3j");
-            logger.log(Level.SEVERE, e.toString(), e);
-        }
-    }
-
-    public Controller() {
-        connect();
-    }
+    public Controller() {}
 
     /**
      *
@@ -91,6 +71,7 @@ public class Controller {
     //TODO: initialise
     public TextField txtPOwnKey;
     public TextField txtIniWei;
+    public TextField txtcontAddr;
 
     //TODO: remove
 //    public void onBtnDeploy(ActionEvent e){
@@ -107,8 +88,12 @@ public class Controller {
 //        logger.log(Level.INFO, "HousingContract deployed");
 //    }
 
+    public void onBtnStart(ActionEvent e){
+        housingContract = HousingContract.getInstance(txtcontAddr.getText());
+    }
+
     public void onBtnLoad(ActionEvent e){
-        housingContract.addCredentials(txtOwnKey.getText(), txtContAddr.getText(), web3j);
+        housingContract.addCredentials(txtOwnKey.getText(), txtContAddr.getText());
     }
 
     //TODO: remove
