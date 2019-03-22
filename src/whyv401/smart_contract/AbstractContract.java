@@ -1,12 +1,15 @@
 package whyv401.smart_contract;
 
 import com.squareup.javapoet.ClassName;
+import org.web3j.ens.EnsResolutionException;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.Contract;
 
+import java.io.IOException;
 import java.math.BigInteger;
+import java.security.InvalidKeyException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,26 +32,27 @@ public abstract class AbstractContract <T extends Contract>{
     protected static final String CONT_SUCCESS  = "Contract successful.";
     protected static final String CONT_FAIL     = "Contract failed.";
 
-    protected AbstractContract(String contractAddr){
+    protected AbstractContract(String contractAddr) throws IOException {
         contractAddress = contractAddr;
         contractMap = new HashMap<>();
         connect();
     }
 
-    public abstract boolean addCredentials(String privateKey, String contractAddress);
+    public abstract String addCredentials(String privateKey, String contractAddress) throws EnsResolutionException, InvalidKeyException;
 
     public final void removeCredentials(String address){ contractMap.remove(address); }
 
-    private void connect(){
+    private void connect() throws IOException {
         try {
             web3j = Web3j.build(new HttpService()); //8545
             logger.log(Level.INFO, CONNECTED);
             Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
             String clientVersion = web3ClientVersion.getWeb3ClientVersion();
             logger.log(Level.INFO, clientVersion);
-        } catch (Exception e) {
+        } catch (IOException e) {
             logger.log(Level.SEVERE, FAIL_CONNECT);
             logger.log(Level.SEVERE, e.toString(), e);
+            throw e;
         }
     }
 
@@ -57,17 +61,17 @@ public abstract class AbstractContract <T extends Contract>{
      * @param w wei to be validated
      * @return wei in BigInt
      */
-    protected final BigInteger validateWei(String w){
+    protected final BigInteger validateWei(String w)throws NumberFormatException{
         if(w.equals("")) {
             logger.log(Level.WARNING, INVALID_WEI);
-            return null;
+            throw new NumberFormatException();
         }
         BigInteger wei;
         try {
             wei = new BigInteger(w);
         }catch (NumberFormatException n) {
             logger.log(Level.WARNING, INVALID_WEI);
-            return null;
+            throw n;
         }
         return wei;
     }

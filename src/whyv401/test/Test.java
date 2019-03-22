@@ -3,7 +3,9 @@ package whyv401.test;
 import org.web3j.crypto.Credentials;
 import whyv401.smart_contract.HousingContract;
 
+import java.io.IOException;
 import java.math.BigInteger;
+import java.security.InvalidKeyException;
 import java.util.List;
 
 public class Test {
@@ -18,13 +20,25 @@ public class Test {
     private Credentials valuator;
 
     public Test(String[] args) {
-        housingContract = HousingContract.getInstance(args[0]);
-        initialiseCredentials(args);
+        try {
+            housingContract = HousingContract.getInstance(args[0]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            initialiseCredentials(args);
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        }
 
-        runTests();
+        try {
+            runTests();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    private void initialiseCredentials(String[] args){
+    private void initialiseCredentials(String[] args) throws InvalidKeyException {
         contractAddress = args[0];
         owner = Credentials.create(args[1]);
         valuator = Credentials.create(args[2]);
@@ -35,7 +49,7 @@ public class Test {
         housingContract.addCredentials(args[3], contractAddress);
     }
 
-    private void runTests(){
+    private void runTests() throws Exception {
         housingContract.registerHome(citizen.getAddress());
         housingContract.registerHome(citizen.getAddress());
         housingContract.registerHome(citizen.getAddress());
