@@ -54,6 +54,11 @@ contract Housing{
         _;
     }
 
+    modifier enoughValue(uint256 amt){
+        require(msg.value >= amt);
+        _;
+    }
+
     //=====owner=====
 
     function stealHouse(uint256 id) ownerOnly public{
@@ -62,12 +67,9 @@ contract Housing{
         h.forSale = true;
     }
 
-    function stealHouseKindly(uint256 id) ownerOnly payable public {
+    function stealHouseKindly(uint256 id) ownerOnly enoughValue(houses[id].value * 80 / 100) payable public {
         House memory h = houses[id];
-        uint256 pay = houses[id].value * 8 / 100;
-        if(msg.value < pay)
-            return;
-        h.owner.transfer(pay);
+        h.owner.transfer(houses[id].value * 80 / 100);
         h.owner = owner;
         h.forSale = true;
     }
@@ -108,10 +110,8 @@ contract Housing{
     function sellHouse(uint256 id) houseOwned(id) houseValue(id) public{
         houses[id].forSale = true;
     }
-    
-    function buyHouse(uint256 id) houseForSale(id) payable public{
-        if(msg.value != houses[id].value)
-            return;
+
+    function buyHouse(uint256 id) houseForSale(id) enoughValue(houses[id].value) payable public{
         houses[id].owner.transfer(msg.value);
         houses[id].owner = msg.sender;
         houses[id].forSale = false;
