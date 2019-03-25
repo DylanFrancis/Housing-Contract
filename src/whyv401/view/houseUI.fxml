@@ -52,7 +52,7 @@
                       <TextField fx:id="txtValAddr" disable="true" layoutX="152.0" layoutY="273.0" />
                       <Button fx:id="btnValAppr" disable="true" layoutX="337.0" layoutY="273.0" mnemonicParsing="false" onAction="#btnOnValAppr" text="Approve" />
                      <Button fx:id="btnDelOwnKey" disable="true" layoutX="453.0" layoutY="76.0" mnemonicParsing="false" onAction="#btnOnDelOwnKey" text="Remove Credentials" />
-                     <Label layoutX="39.0" layoutY="206.0" text="Remuneration" />
+                     <Label layoutX="39.0" layoutY="206.0" text="Remuneration (Wei)" />
                      <TextField fx:id="txtOwnRem" disable="true" layoutX="152.0" layoutY="202.0" />
                    </children>
                 </Pane>
@@ -72,7 +72,7 @@
                         <font>
                            <Font size="14.0" />
                         </font></Label>
-                      <Label layoutX="39.0" layoutY="113.0" text="House ID" />
+                      <Label layoutX="39.0" layoutY="113.0" text="Apply" />
                       <TextField fx:id="txtValHValue" disable="true" layoutX="151.0" layoutY="229.0" />
                       <Button fx:id="btnValApp" disable="true" layoutX="385.0" layoutY="109.0" mnemonicParsing="false" onAction="#btnOnValApp" text="Apply" />
                       <Label layoutX="24.0" layoutY="153.0" text="Assign House Value">
@@ -82,7 +82,7 @@
                       <Label layoutX="38.0" layoutY="192.0" text="House ID" />
                       <TextField fx:id="txtValHID" disable="true" layoutX="151.0" layoutY="188.0" />
                       <Button fx:id="btnValAssign" disable="true" layoutX="354.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnOnValAssign" text="Assign Value" />
-                      <Label layoutX="38.0" layoutY="233.0" text="House Value" />
+                      <Label layoutX="38.0" layoutY="233.0" text="House Value (Wei)" />
                      <Button fx:id="btnDelValKey" disable="true" layoutX="448.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnOnDelValKey" text="Remove Credentials" />
                   </children>
               </Pane>
@@ -121,7 +121,7 @@
                            <Font size="14.0" />
                         </font></Label>
                       <Label layoutX="40.0" layoutY="273.0" text="House ID" />
-                      <Label layoutX="43.0" layoutY="313.0" text="Amount" />
+                      <Label layoutX="43.0" layoutY="313.0" text="Amount (Wei)" />
                       <TextField fx:id="txtHouseAmt" disable="true" layoutX="151.0" layoutY="309.0" />
                       <Button fx:id="btnBuyHouse" disable="true" layoutX="331.0" layoutY="309.0" mnemonicParsing="false" onAction="#btnOnBuyHouse" text="Buy house" />
                      <Button fx:id="btnDelCitKey" disable="true" layoutX="448.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnOnDelCitKey" text="Remove Credentials" />

@@ -94,4 +94,8 @@ public abstract class AbstractContract <T extends Contract>{
                 "From: "                + receipt.getFrom(),
                 "To: "                  + receipt.getTo()};
     }
+
+    public BigInteger toWei(BigInteger amt, String unit){
+        return null;
+    }
 }

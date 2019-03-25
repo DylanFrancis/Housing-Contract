@@ -218,7 +218,7 @@ public class Controller {
 
     private void enableValuator(){
         txtValKey.setDisable(true);
-        txtValKey.setDisable(true);
+        btnLoadVal.setDisable(true);
         txtValHID.setDisable(false);
         txtValHValue.setDisable(false);
         btnDelValKey.setDisable(false);
@@ -228,7 +228,7 @@ public class Controller {
 
     private void disableValuator(){
         txtValKey.setDisable(false);
-        txtValKey.setDisable(false);
+        btnLoadVal.setDisable(false);
         txtValHID.setDisable(true);
         txtValHValue.setDisable(true);
         btnDelValKey.setDisable(true);

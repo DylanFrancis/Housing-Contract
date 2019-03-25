@@ -72,7 +72,7 @@
                         <font>
                            <Font size="14.0" />
                         </font></Label>
-                      <Label layoutX="39.0" layoutY="113.0" text="House ID" />
+                      <Label layoutX="39.0" layoutY="113.0" text="Apply" />
                       <TextField fx:id="txtValHValue" disable="true" layoutX="151.0" layoutY="229.0" />
                       <Button fx:id="btnValApp" disable="true" layoutX="385.0" layoutY="109.0" mnemonicParsing="false" onAction="#btnOnValApp" text="Apply" />
                       <Label layoutX="24.0" layoutY="153.0" text="Assign House Value">
