@@ -3,6 +3,7 @@ package whyv401.smart_contract;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
 import org.web3j.ens.EnsResolutionException;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.tx.gas.DefaultGasProvider;
 
 import java.io.IOException;
@@ -42,69 +43,68 @@ public class HousingContract extends AbstractContract<Housing>{
         }
     }
 
-    public boolean stealHouse(String sender, BigInteger houseId) throws Exception{
-        if(!contains(sender)) return false;
+    public String[] stealHouse(String sender, BigInteger houseId) throws Exception{
+        if(!contains(sender)) throw new Exception(KEY_LOCKED);
         try {
-            contractMap.get(sender).stealHouse(houseId).send();
-            return true;
+            TransactionReceipt r = contractMap.get(sender).stealHouse(houseId).send();
+            return receipt(r);
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString(), e);
             throw e;
         }
     }
 
-    public boolean stealHouseKindly(String sender, BigInteger houseId, String weiValue) throws Exception{
-        if(!contains(sender)) return false;
+    public String[] stealHouseKindly(String sender, BigInteger houseId, String weiValue) throws Exception{
+        if(!contains(sender)) throw new Exception(KEY_LOCKED);
         BigInteger w = validateWei(weiValue);
-        if(w == null) return false;
         try {
-            contractMap.get(sender).stealHouseKindly(houseId, w).send();
-        } catch (Exception e) {
-            logger.log(Level.WARNING, e.toString(), e);
-            throw e;
-        }
-        return false;
-    }
-
-    public boolean approveValuator(String sender, String valuator)throws Exception{
-        if(!contains(sender)) return false;
-        try {
-            contractMap.get(sender).approveValuator(valuator).send();
-            return true;
+            TransactionReceipt r = contractMap.get(sender).stealHouseKindly(houseId, w).send();
+            return receipt(r);
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString(), e);
             throw e;
         }
     }
 
-    public boolean applyForValuator(String sender) throws Exception{
-        if(!contains(sender)) return false;
+    public String[] approveValuator(String sender, String valuator)throws Exception{
+        if(!contains(sender)) throw new Exception(KEY_LOCKED);
         try {
-            contractMap.get(sender).applyForValuator().send();
-            return true;
+            TransactionReceipt r = contractMap.get(sender).approveValuator(valuator).send();
+            return receipt(r);
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString(), e);
             throw e;
         }
     }
 
-    public boolean assignValue(String sender, BigInteger houseId, BigInteger value) throws Exception {
-        if(!contains(sender)) return false;
+    public String[] applyForValuator(String sender) throws Exception{
+        if(!contains(sender)) throw new Exception(KEY_LOCKED);
         try {
-            contractMap.get(sender).assignValue(houseId, value).send();
-            return true;
+            TransactionReceipt r = contractMap.get(sender).applyForValuator().send();
+            return receipt(r);
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString(), e);
             throw e;
         }
     }
 
-    public boolean registerHome(String sender) throws Exception {
-        if(!contains(sender)) return false;
+    public String[] assignValue(String sender, BigInteger houseId, BigInteger value) throws Exception {
+        if(!contains(sender)) throw new Exception(KEY_LOCKED);
         try {
-            contractMap.get(sender).registerHome().send();
+            TransactionReceipt r = contractMap.get(sender).assignValue(houseId, value).send();
+            return receipt(r);
+        } catch (Exception e) {
+            logger.log(Level.WARNING, e.toString(), e);
+            throw e;
+        }
+    }
+
+    public String[] registerHome(String sender) throws Exception {
+        if(!contains(sender)) throw new Exception(KEY_LOCKED);
+        try {
+            TransactionReceipt r = contractMap.get(sender).registerHome().send();
             logger.log(Level.INFO, HOME_REGIS);
-            return true;
+            return receipt(r);
         } catch (Exception e) {
             logger.log(Level.WARNING, FAIL_HOME_REGIS);
             logger.log(Level.WARNING, e.toString(), e);
@@ -124,11 +124,11 @@ public class HousingContract extends AbstractContract<Housing>{
         }
     }
 
-    public boolean sellHouse(String sender, BigInteger houseId) throws Exception {
-        if(!contains(sender)) return false;
+    public String[] sellHouse(String sender, BigInteger houseId) throws Exception {
+        if(!contains(sender)) throw new Exception(KEY_LOCKED);
         try {
-            contractMap.get(sender).sellHouse(houseId).send();
-            return true;
+            TransactionReceipt r = contractMap.get(sender).sellHouse(houseId).send();
+            return receipt(r);
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString(), e);
             throw e;
@@ -136,13 +136,12 @@ public class HousingContract extends AbstractContract<Housing>{
 
     }
 
-    public boolean buyHouse(String sender, BigInteger houseId, String weiValue) throws Exception {
-        if(!contains(sender)) return false;
+    public String[] buyHouse(String sender, BigInteger houseId, String weiValue) throws Exception {
+        if(!contains(sender)) throw new Exception(KEY_LOCKED);
         BigInteger w = validateWei(weiValue);
-        if(w == null) return false;
         try {
-            contractMap.get(sender).buyHouse(houseId, w).send();
-            return true;
+            TransactionReceipt r = contractMap.get(sender).buyHouse(houseId, w).send();
+            return receipt(r);
         } catch (Exception e) {
             logger.log(Level.WARNING, e.toString(), e);
             throw e;

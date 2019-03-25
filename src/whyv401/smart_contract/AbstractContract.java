@@ -3,6 +3,7 @@ package whyv401.smart_contract;
 import com.squareup.javapoet.ClassName;
 import org.web3j.ens.EnsResolutionException;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.Contract;
@@ -83,5 +84,14 @@ public abstract class AbstractContract <T extends Contract>{
         }
         logger.log(Level.INFO, KEY_UNLOCKED);
         return true;
+    }
+
+    protected String[] receipt(TransactionReceipt receipt){
+        return new String[]{
+                "Block number: "        + receipt.getBlockNumberRaw(),
+                "Gas used: "            + receipt.getGasUsed().toString(),
+                "Block hash: "          + receipt.getBlockHash(),
+                "From: "                + receipt.getFrom(),
+                "To: "                  + receipt.getTo()};
     }
 }

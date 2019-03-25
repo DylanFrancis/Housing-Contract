@@ -8,11 +8,12 @@ import javafx.scene.control.TextField;
 import org.web3j.ens.EnsResolutionException;
 import org.web3j.protocol.Web3j;
 import whyv401.smart_contract.HousingContract;
-import whyv401.smart_contract.Housing;
 
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -24,11 +25,6 @@ public class Controller {
     private String owner;
     private String valuator;
     private String citizen;
-    private Housing housing;
-
-    public static void main(String[] args) {
-
-    }
 
     public Controller() {}
 
@@ -37,15 +33,15 @@ public class Controller {
 
     // Start
     public TextField txtContAddr;
-    public Button btnConnect;
     public TextArea txtOut;
+    public Button btnConnect;
 
     public void btnOnConnect(ActionEvent actionEvent){
         String contAddr = txtContAddr.getText();
         try {
             housingContract = HousingContract.getInstance(contAddr);
             contractAddress = contAddr;
-            outputNewLine(SUCCESS);
+            print(SUCCESS);
             enableLoad();
         } catch (IOException e) {
             outputNewLine(e.toString());
@@ -54,6 +50,21 @@ public class Controller {
 
     private void outputNewLine(String s){
         txtOut.appendText("\n" + s);
+    }
+
+    private void print(String s){
+        outputNewLine(s);
+        outputNewLine("------------");
+    }
+
+    private void print(String[] arr){
+        for (String s : arr) outputNewLine(s);
+        outputNewLine("------------");
+    }
+
+    private void print(List<String> arr){
+        for (String s : arr) outputNewLine(s);
+        outputNewLine("------------");
     }
 
     // Owner
@@ -73,7 +84,7 @@ public class Controller {
         try {
             owner = housingContract.addCredentials(pk, contractAddress);
             enableOwner();
-            outputNewLine(SUCCESS);
+            print(SUCCESS);
         }catch (EnsResolutionException | InvalidKeyException e){
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -88,8 +99,9 @@ public class Controller {
     public void btnOnSeizeHouse(ActionEvent actionEvent){
         String id = txtOwnHID.getText();
         try {
-            housingContract.stealHouse(owner, new BigInteger(id));
+            String[] r = housingContract.stealHouse(owner, new BigInteger(id));
             outputNewLine(SUCCESS);
+            print(r);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -100,8 +112,9 @@ public class Controller {
         String id = txtOwnHID.getText();
         String rem = txtOwnRem.getText();
         try {
-            housingContract.stealHouseKindly(owner, new BigInteger(id), rem);
+            String[] r = housingContract.stealHouseKindly(owner, new BigInteger(id), rem);
             outputNewLine(SUCCESS);
+            print(r);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -111,8 +124,9 @@ public class Controller {
     public void btnOnValAppr(ActionEvent actionEvent){
         String val = txtValAddr.getText();
         try {
-            housingContract.approveValuator(owner, val);
+            String[] r = housingContract.approveValuator(owner, val);
             outputNewLine(SUCCESS);
+            print(r);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -167,7 +181,7 @@ public class Controller {
         try {
             valuator = housingContract.addCredentials(pk, contractAddress);
             enableValuator();
-            outputNewLine(SUCCESS);
+            print(SUCCESS);
         } catch (InvalidKeyException e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -182,8 +196,9 @@ public class Controller {
 
     public void btnOnValAssign(ActionEvent actionEvent){
         try {
-            housingContract.assignValue(valuator, new BigInteger(txtValHID.getText()), new BigInteger(txtValHValue.getText()));
+            String[] r = housingContract.assignValue(valuator, new BigInteger(txtValHID.getText()), new BigInteger(txtValHValue.getText()));
             outputNewLine(SUCCESS);
+            print(r);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -192,8 +207,9 @@ public class Controller {
 
     public void btnOnValApp(ActionEvent actionEvent){
         try {
-            housingContract.applyForValuator(valuator);
+            String[] r = housingContract.applyForValuator(valuator);
             outputNewLine(SUCCESS);
+            print(r);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -238,7 +254,7 @@ public class Controller {
         try {
             citizen = housingContract.addCredentials(pk, contractAddress);
             enableCitizen();
-            outputNewLine(SUCCESS);
+            print(SUCCESS);
         } catch (InvalidKeyException e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -253,8 +269,9 @@ public class Controller {
 
     public void btnOnRegHouse(ActionEvent actionEvent){
         try {
-            housingContract.registerHome(citizen);
+            String[] r = housingContract.registerHome(citizen);
             outputNewLine(SUCCESS);
+            print(r);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -265,7 +282,15 @@ public class Controller {
         try {
             List list = housingContract.getHousesForSale(citizen);
             outputNewLine(SUCCESS);
-            list.forEach(obj -> outputNewLine(obj.toString()));
+            List<String> arr = new LinkedList<>();
+            Iterator iterator = list.iterator();
+            int id = 0;
+            while (iterator.hasNext()){
+                BigInteger i = ((BigInteger) iterator.next());
+                if (i.intValue() != 0) arr.add("House ID: " + String.valueOf(id) + " Value: " + String.valueOf(i));
+                id++;
+            }
+            print(arr);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -274,8 +299,9 @@ public class Controller {
 
     public void btnOnSellHouse(ActionEvent actionEvent){
         try {
-            housingContract.sellHouse(citizen, new BigInteger(txtSellCitHID.getText()));
+            String[] r = housingContract.sellHouse(citizen, new BigInteger(txtSellCitHID.getText()));
             outputNewLine(SUCCESS);
+            print(r);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();
@@ -284,8 +310,9 @@ public class Controller {
 
     public void btnOnBuyHouse(ActionEvent actionEvent){
         try {
-            housingContract.buyHouse(citizen, new BigInteger(txtBuyCitHID.getText()), txtHouseAmt.getText());
+            String[] r = housingContract.buyHouse(citizen, new BigInteger(txtBuyCitHID.getText()), txtHouseAmt.getText());
             outputNewLine(SUCCESS);
+            print(r);
         } catch (Exception e) {
             outputNewLine(e.toString());
             e.printStackTrace();

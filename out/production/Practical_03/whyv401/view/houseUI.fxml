@@ -14,6 +14,18 @@
 <VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="whyv401.controller.Controller">
     <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
       <tabs>
+          <Tab text="Setup">
+              <content>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <Label layoutX="25.0" layoutY="38.0" text="Contract Address">
+                        <font>
+                            <Font size="14.0" />
+                        </font></Label>
+                    <TextField fx:id="txtContAddr" layoutX="152.0" layoutY="34.0" />
+                    <Button fx:id="btnConnect" layoutX="338.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnOnConnect" text="Connect" />
+                </Pane>
+              </content>
+          </Tab>
         <Tab text="Owner">
              <content>
                 <Pane prefHeight="200.0" prefWidth="200.0">
@@ -40,12 +52,6 @@
                       <TextField fx:id="txtValAddr" disable="true" layoutX="152.0" layoutY="273.0" />
                       <Button fx:id="btnValAppr" disable="true" layoutX="337.0" layoutY="273.0" mnemonicParsing="false" onAction="#btnOnValAppr" text="Approve" />
                      <Button fx:id="btnDelOwnKey" disable="true" layoutX="453.0" layoutY="76.0" mnemonicParsing="false" onAction="#btnOnDelOwnKey" text="Remove Credentials" />
-                     <Label layoutX="25.0" layoutY="38.0" text="Contract Address">
-                        <font>
-                           <Font size="14.0" />
-                        </font></Label>
-                     <TextField fx:id="txtContAddr" layoutX="152.0" layoutY="34.0" />
-                     <Button fx:id="btnConnect" layoutX="338.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnOnConnect" text="Connect" />
                      <Label layoutX="39.0" layoutY="206.0" text="Remuneration" />
                      <TextField fx:id="txtOwnRem" disable="true" layoutX="152.0" layoutY="202.0" />
                    </children>

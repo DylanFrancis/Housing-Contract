@@ -8,9 +8,9 @@ import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.util.List;
 
-public class Test {
+public class ConsoleTest {
     public static void main(String[] args) {
-        new Test(args);
+        new ConsoleTest(args);
     }
 
     private static HousingContract housingContract;
@@ -19,7 +19,7 @@ public class Test {
     private Credentials citizen;
     private Credentials valuator;
 
-    public Test(String[] args) {
+    public ConsoleTest(String[] args) {
         try {
             housingContract = HousingContract.getInstance(args[0]);
         } catch (IOException e) {

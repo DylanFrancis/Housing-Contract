@@ -49,6 +49,11 @@ contract Housing{
         _;
     }
 
+    modifier houseValue(uint256 id){
+        require(houses[id].value > 0);
+        _;
+    }
+
     //=====owner=====
 
     function stealHouse(uint256 id) ownerOnly public{
@@ -93,14 +98,14 @@ contract Housing{
         uint256[] memory hArr = new uint256[](houseId);
         for(uint256 x = 0; x <= houseId - 1; x++){
             if(houses[x].forSale){
-                hArr[x] = 1;
+                hArr[x] = houses[x].value;
             }
         }
         return hArr;
         // emit housesForSale(hArr);
     }
-    
-    function sellHouse(uint256 id) houseOwned(id) public{
+
+    function sellHouse(uint256 id) houseOwned(id) houseValue(id) public{
         houses[id].forSale = true;
     }
     

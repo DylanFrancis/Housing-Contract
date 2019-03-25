@@ -11,6 +11,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Blockchain_Practical_03$Main.ic" NAME="Main Coverage Results" MODIFIED="1553438123633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>whyv401.smart_contract.HousingContract</FILTER>
+    </SUITE>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -142,6 +147,42 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1403563023">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="20" />
+          <entry key="fxml" value="61" />
+          <entry key="java" value="1124" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1124" />
+          <entry key="PLAIN_TEXT" value="20" />
+          <entry key="XML" value="61" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="1" />
+          <entry key="fxml" value="1" />
+          <entry key="java" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="2" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
@@ -149,23 +190,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/whyv401/test/Test.java">
+        <entry file="file://$PROJECT_DIR$/src/whyv401/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-320">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+            <state relative-caret-position="5457">
+              <caret line="337" column="39" lean-forward="true" selection-start-line="337" selection-start-column="39" selection-end-line="337" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/whyv401/controller/Controller.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/whyv401/test/UITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="259" column="32" lean-forward="true" selection-start-line="259" selection-start-column="32" selection-end-line="259" selection-end-column="32" />
+            <state relative-caret-position="289">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1158#1159#0" expanded="true" />
-                <element signature="e#1201#1202#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -173,21 +215,31 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/whyv401/view/houseUI.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
+            <state relative-caret-position="153">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/HousingContract.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/HousingContract.java">
+        <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/tx/gas/DefaultGasProvider.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="136">
+              <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#418#419#0" expanded="true" />
+                <element signature="e#461#462#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -197,7 +249,7 @@
         <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/Housing.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+              <caret line="107" column="39" lean-forward="true" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -205,32 +257,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/AbstractContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="66" column="46" lean-forward="true" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
+            <state relative-caret-position="272">
+              <caret line="51" column="50" lean-forward="true" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/whyv401/test/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Housing.sol">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -261,6 +292,13 @@
       <find>false</find>
       <find>re</find>
       <find>controller</find>
+      <find>boolean</find>
+      <find>return false</find>
+      <find>;;</find>
+      <find>return true;</find>
+      <find>printReceipt</find>
+      <find>outputNewLine(SUCCESS);</find>
+      <find>outputNewLine(SUCCESS)</find>
     </findStrings>
     <replaceStrings>
       <replace>btnOn</replace>
@@ -268,6 +306,14 @@
       <replace />
       <replace>actionEvent</replace>
       <replace>true</replace>
+      <replace>String[]</replace>
+      <replace>throw new Exception(KEY_LOCKED);</replace>
+      <replace>;</replace>
+      <replace>return receipt(r);</replace>
+      <replace>print</replace>
+      <replace>print(SUCCESS):</replace>
+      <replace>print(SUCCESS);</replace>
+      <replace>print(SUCCESS)</replace>
     </replaceStrings>
   </component>
   <component name="FindManager">
@@ -294,15 +340,16 @@
         <option value="$PROJECT_DIR$/src/whyv401/controller/Utils.java" />
         <option value="$PROJECT_DIR$/src/whyv401/smart_contract/Housing.java" />
         <option value="$PROJECT_DIR$/src/whyv401/Test.java" />
-        <option value="$PROJECT_DIR$/Housing.sol" />
         <option value="$PROJECT_DIR$/src/whyv401/view/view.fxml" />
         <option value="$PROJECT_DIR$/src/whyv401/view/ui.fxml" />
         <option value="$PROJECT_DIR$/src/whyv401/test/Main.java" />
         <option value="$PROJECT_DIR$/src/whyv401/test/Test.java" />
-        <option value="$PROJECT_DIR$/src/whyv401/smart_contract/AbstractContract.java" />
         <option value="$PROJECT_DIR$/src/whyv401/view/houseUI.fxml" />
-        <option value="$PROJECT_DIR$/src/whyv401/smart_contract/HousingContract.java" />
+        <option value="$PROJECT_DIR$/Housing.sol" />
+        <option value="$PROJECT_DIR$/src/whyv401/smart_contract/AbstractContract.java" />
         <option value="$PROJECT_DIR$/src/whyv401/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/whyv401/test/UITest.java" />
+        <option value="$PROJECT_DIR$/src/whyv401/smart_contract/HousingContract.java" />
       </list>
     </option>
   </component>
@@ -314,10 +361,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-7" />
+    <option name="y" value="2" />
+    <option name="width" value="1378" />
+    <option name="height" value="733" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -379,8 +426,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,21 +440,22 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553275811435" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553503829626" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/Honours/WHYV401 Blockchain/Practical_03" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\Developement\Blockchain\Blockchain_Practical_03\src\whyv401\smart_contract" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dylan\Documents\GitHub\Blockchain_Practical_03\src\whyv401\smart_contract" />
       <recent name="G:\Developement\Blockchain\Practical_03\resources" />
       <recent name="G:\Developement\Blockchain\Practical_03\src\whyv401\view" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Developement\Blockchain\Blockchain_Practical_03\src\whyv401\smart_contract" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -441,8 +489,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ConsoleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="whyv401.test.ConsoleTest" />
+      <module name="Practical_03" />
+      <option name="PROGRAM_PARAMETERS" value="0x8d98063574599d0307c4002dab1457ac18610cae 0a254e1e76832a2c2941a89e8175dc0b0a7877b4173b72126585d9fe48166be5 45e85cae21bc00efb2a28b93dfd5277cbe3c3e0a58a08563cfa2da4aaaadb197 c77297c6d532810bda7dd3e7532610661a558ba5f45eff0a69557bb3b2c0a63e dbddbcbf8df1fe49663d39a5fef0f800cae68f5d6b07a29c25efac1fda8f6bb6 d032762fd07c3ade094dbc07b524827723b833e585585847427f0a3923db9c1a" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whyv401.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="whyv401.test.Main" />
+      <option name="MAIN_CLASS_NAME" value="whyv401.test.UITest" />
       <module name="Practical_03" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -453,20 +515,6 @@
       </extension>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="whyv401.test.Test" />
-      <module name="Practical_03" />
-      <option name="PROGRAM_PARAMETERS" value="0x8d98063574599d0307c4002dab1457ac18610cae 0a254e1e76832a2c2941a89e8175dc0b0a7877b4173b72126585d9fe48166be5 45e85cae21bc00efb2a28b93dfd5277cbe3c3e0a58a08563cfa2da4aaaadb197 c77297c6d532810bda7dd3e7532610661a558ba5f45eff0a69557bb3b2c0a63e dbddbcbf8df1fe49663d39a5fef0f800cae68f5d6b07a29c25efac1fda8f6bb6 d032762fd07c3ade094dbc07b524827723b833e585585847427f0a3923db9c1a" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="whyv401.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -508,11 +556,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.ConsoleTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.ConsoleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -534,11 +582,12 @@
       <workItem from="1552981221233" duration="7330000" />
       <workItem from="1553145371267" duration="12916000" />
       <workItem from="1553262151736" duration="8269000" />
+      <workItem from="1553432189427" duration="5598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58575000" />
+    <option name="totallyTimeSpent" value="64173000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -550,10 +599,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.14978679" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.15250379" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -562,7 +611,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23535791" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.12520868" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.52060735" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -576,16 +625,17 @@
       <window_info anchor="bottom" id="Messages" order="13" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="15" weight="0.29392624" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,11 +668,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../whyv401/Housing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2243" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../whyv401/Housing.java" />
     <entry file="file://$PROJECT_DIR$/src/whyv401/controller/Housing.json" />
     <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/tx/gas/ContractGasProvider.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -645,13 +691,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/org/xml/sax/helpers/LocatorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/org/xml/sax/helpers/LocatorImpl.java" />
     <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/crypto/WalletUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
@@ -659,20 +699,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/org/xml/sax/helpers/DefaultHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/org/xml/sax/InputSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4301">
-          <caret line="312" selection-start-line="312" selection-end-line="312" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/org/xml/sax/helpers/DefaultHandler.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/org/xml/sax/InputSource.java" />
     <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/crypto/Credentials.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -689,13 +717,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../whyv401/controller/Housing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="29" column="922" selection-start-line="29" selection-start-column="922" selection-end-line="29" selection-end-column="922" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../whyv401/controller/Housing.java" />
     <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/protocol/core/methods/request/Filter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -710,13 +732,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Generate/whyv401/controller/Housing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Generate/whyv401/controller/Housing.java" />
     <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/tx/Contract.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -731,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/tx/gas/DefaultGasProvider.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/tx/gas/StaticGasProvider.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -745,13 +754,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Generate/whyv401/smart_contract/Housing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="37" column="36" lean-forward="true" selection-end-line="266" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Generate/whyv401/smart_contract/Housing.java" />
     <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/tx/TransactionManager.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
@@ -761,38 +764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/whyv401/view/view.fxml" />
     <entry file="file://$PROJECT_DIR$/src/whyv401/view/houseUI.java" />
-    <entry file="file://$PROJECT_DIR$/src/whyv401/view/ui.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Housing.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/whyv401/test/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/whyv401/view/ui.fxml" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java" />
     <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/protocol/core/RemoteCall.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -800,50 +773,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/Housing.java">
+    <entry file="file://$PROJECT_DIR$/src/whyv401/view/sample.fxml" />
+    <entry file="file://$PROJECT_DIR$/Housing.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+        <state relative-caret-position="400">
+          <caret line="118" column="1" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/whyv401/view/sample.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/AbstractContract.java">
+    <entry file="file://$PROJECT_DIR$/src/whyv401/test/ConsoleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="66" column="46" lean-forward="true" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/whyv401/view/houseUI.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/whyv401/test/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-320">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/HousingContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="34">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -852,13 +793,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/whyv401/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="259" column="32" lean-forward="true" selection-start-line="259" selection-start-column="32" selection-end-line="259" selection-end-column="32" />
+        <state relative-caret-position="5457">
+          <caret line="337" column="39" lean-forward="true" selection-start-line="337" selection-start-column="39" selection-end-line="337" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1158#1159#0" expanded="true" />
-            <element signature="e#1201#1202#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/whyv401/test/UITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/AbstractContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="51" column="50" lean-forward="true" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/Housing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="107" column="39" lean-forward="true" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/web3j-4.1.1/lib/console-4.1.1-all.jar!/org/web3j/tx/gas/DefaultGasProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/whyv401/view/houseUI.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/whyv401/smart_contract/HousingContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
         </state>
       </provider>
     </entry>
